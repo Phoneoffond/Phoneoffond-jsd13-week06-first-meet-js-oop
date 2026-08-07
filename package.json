@@ -3,7 +3,7 @@
     "scripts": {
         "day1":"node my-zoo.js",
         "day2":"node day-2-zoo.js",
-        "day3":"node first-meet-fetch.js",
+        "day3":"node day-3-zoo.js",
         "fetch":"node first-meet-fetch.js",
         "fetch-then":"node first-meet-fetch-then.js",
         "fetch-callback":"node first-meet-fetch-callback.js"
