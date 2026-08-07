@@ -6,7 +6,8 @@
         "day3":"node day-3-zoo.js",
         "fetch":"node first-meet-fetch.js",
         "fetch-then":"node first-meet-fetch-then.js",
-        "fetch-callback":"node first-meet-fetch-callback.js"
+        "fetch-callback":"node first-meet-fetch-callback.js",
+        "api":"node fetch-api-key.js"
     }
 
 }
