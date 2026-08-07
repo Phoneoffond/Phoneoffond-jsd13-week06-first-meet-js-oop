@@ -216,9 +216,20 @@ askForCommand();
 
 function askForCommand() {
     rl.question(
-        "\nnPlease fill your animals\n> ",
+        "\nPlease fill your animals\n> ",
         (answer) => {
             const command = answer.trim().toLowerCase();
+
+            if (command === "q") {
+                console.log("\nThank you for visiting the JS Terminal Zoo.");
+                rl.close();
+                return;
+            }
+
+            handleCommand(command);
+            displayZoo();
+            askForCommand();
+
 getAnimal(answer);
            
         },
