@@ -37,7 +37,7 @@ const zooPath = [
     animal: animals[0],
   },
   {
-    symbol: ":delicious_tree:",
+    symbol: "🌳",
     name: "Garden",
     description: "A quiet garden with large trees and shaded benches.",
   },
@@ -94,15 +94,15 @@ if(command === "l"){
     console.log(visitor.moveRight(zooPath.length -1));
 } else if (command === "i"){
     inspectLocation();
-    else if (command === "d"){
+}else if (command === "d"){
     showZooDirectory();
-    else {
+}else {
     console.log("Please enter l, r, i, d, or q")
 }
 }
-}
 
-}
+
+
 
 function showZooDirectory(){
 console.log("\nZoo directory");
@@ -118,9 +118,9 @@ console.log("\nZoo directory");
 function displayZoo(){
  const bannerRow = [`=== ${zooName} ===`];
  const placesRow = zooPath.map((location) => location.symbol);
- const pathwayRow = zooPath.map(() => ":white_large_square:");
+ const pathwayRow = zooPath.map(() => ":white_square_button:");
 
- pathwayRow[visitor.position] = ":adult:";
+ pathwayRow[visitor.position] = "👩";
 
  console.log("");
  console.log(bannerRow.join(""));
@@ -141,7 +141,27 @@ const location = zooPath[visitor.position];
  }
 
 }
-function prepareAnimalFood(){}
+function prepareAnimalFood(){
+setTimeout(() => console.log("The animal feed is ready."), 2000);
+
+}
+
+function askForCommand(){rl.question(
+        "\n[l] Left | [r] Right | [i] Inspect | [d] Directory | [q] Quit\n> ",
+        (answer) => {
+            const command = answer.trim().toLowerCase();
+
+            if (command === "q") {
+                console.log("\nThank you for visiting the JS Terminal Zoo.");
+                rl.close();
+                return;
+            }
+
+            handleCommand(command);
+            displayZoo();
+            askForCommand();
+        },
+    );}
 
 console.log(`Welcome to the ${zooName} Explorer.`);
 showZooDirectory();
